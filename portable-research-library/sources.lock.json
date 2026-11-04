@@ -1,0 +1,34 @@
+{
+  "anthropic-skills": {
+    "url": "https://github.com/anthropics/skills",
+    "commit": "ca45fc496a3436251f191354091d557da31c15b5"
+  },
+  "anthropic-work": {
+    "url": "https://github.com/anthropics/knowledge-work-plugins",
+    "commit": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+  },
+  "anthropic-plugins": {
+    "url": "https://github.com/anthropics/claude-plugins-official",
+    "commit": "a7ba5b93db0c7c8d17f3f1d25853adca79598a1a"
+  },
+  "openai-plugins": {
+    "url": "https://github.com/openai/plugins",
+    "commit": "0722921d5542fc593105c27bd52630babd8b8c2a"
+  },
+  "orchestra-research": {
+    "url": "https://github.com/Orchestra-Research/AI-research-SKILLs",
+    "commit": "773a52944ba4747a18bd4ae9ade53fff041adcbc"
+  },
+  "kdense-science": {
+    "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "commit": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a"
+  },
+  "openai-codex": {
+    "url": "https://github.com/openai/codex",
+    "commit": "6c4fa86838df53578f454388b44ba1d248d57370"
+  },
+  "caveman": {
+    "url": "https://github.com/JuliusBrussee/caveman",
+    "commit": "2e068f735253cce28256744804785f01887d9646"
+  }
+}

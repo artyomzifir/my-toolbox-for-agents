@@ -1,0 +1,7 @@
+/.venv/
+__pycache__/
+/.env
+/goose-settings.generated.yaml
+/papers/
+/extracted/
+/artifacts/

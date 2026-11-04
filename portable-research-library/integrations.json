@@ -1,0 +1,102 @@
+[
+  {
+    "path": "upstream/anthropic-plugins/plugins/claude-md-management/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/code-review/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/code-simplifier/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/feature-dev/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/frontend-design/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/mcp-server-dev/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/plugin-dev/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/pr-review-toolkit/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/project-artifact/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/data/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/data/.mcp.json",
+    "kind": ".mcp.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/engineering/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/engineering/.mcp.json",
+    "kind": ".mcp.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/enterprise-search/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/enterprise-search/.mcp.json",
+    "kind": ".mcp.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/product-management/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/product-management/.mcp.json",
+    "kind": ".mcp.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/productivity/.claude-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/anthropic-work/productivity/.mcp.json",
+    "kind": ".mcp.json",
+    "status": "reference config only; no connection or authentication performed"
+  },
+  {
+    "path": "upstream/openai-plugins/plugins/superpowers/.codex-plugin/plugin.json",
+    "kind": "plugin.json",
+    "status": "reference config only; no connection or authentication performed"
+  }
+]

@@ -1,0 +1,15 @@
+[project]
+name = "goose-research-document-tools"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = ["docling", "python-docx", "openpyxl", "pandas", "matplotlib"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+torchaudio = { index = "pytorch-cpu" }

@@ -1,0 +1,90 @@
+[
+  {
+    "path": "upstream/anthropic-plugins/plugins/claude-md-management/commands/revise-claude-md.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/code-review/commands/code-review.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/code-simplifier/agents/code-simplifier.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/feature-dev/agents/code-architect.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/feature-dev/agents/code-explorer.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/feature-dev/agents/code-reviewer.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/feature-dev/commands/feature-dev.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/plugin-dev/agents/agent-creator.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/plugin-dev/agents/plugin-validator.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/plugin-dev/agents/skill-reviewer.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/plugin-dev/commands/create-plugin.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/pr-review-toolkit/agents/code-reviewer.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/pr-review-toolkit/agents/code-simplifier.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/pr-review-toolkit/agents/comment-analyzer.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/pr-review-toolkit/agents/pr-test-analyzer.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/pr-review-toolkit/agents/silent-failure-hunter.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/pr-review-toolkit/agents/type-design-analyzer.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-plugins/plugins/pr-review-toolkit/commands/review-pr.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-skills/skills/skill-creator/agents/analyzer.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-skills/skills/skill-creator/agents/comparator.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-skills/skills/skill-creator/agents/grader.md",
+    "status": "upstream host-specific procedure; not activated"
+  },
+  {
+    "path": "upstream/anthropic-work/product-management/commands/brainstorm.md",
+    "status": "upstream host-specific procedure; not activated"
+  }
+]
