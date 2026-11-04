@@ -30,5 +30,17 @@
   "caveman": {
     "url": "https://github.com/JuliusBrussee/caveman",
     "commit": "2e068f735253cce28256744804785f01887d9646"
+  },
+  "addy-agent-skills": {
+    "url": "https://github.com/addyosmani/agent-skills",
+    "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  },
+  "jordan-codingskills": {
+    "url": "https://github.com/JordanCoin/codingskills",
+    "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54"
+  },
+  "superpowers": {
+    "url": "https://github.com/obra/superpowers",
+    "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
   }
 }

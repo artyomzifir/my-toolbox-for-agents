@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-11-03",
+  "snapshot_date": "2026-11-04",
   "status": "source library, not an end-to-end validated agent distribution",
   "profiles": {
     "research-core": {
@@ -47,13 +47,18 @@
       ]
     },
     "software-core": {
-      "description": "Планирование, debugging, проверка и архитектура. Имена инструментов могут требовать адаптации.",
+      "description": "Addy для плана, контрактов, миграций и ревью, JordanCoin для KISS/SOLID, Superpowers для диагностики, TDD и проверки.",
       "skills": [
-        "openai-plugins--plugins--superpowers--skills--systematic-debugging",
-        "openai-plugins--plugins--superpowers--skills--verification-before-completion",
-        "openai-plugins--plugins--superpowers--skills--writing-plans",
-        "anthropic-work--engineering--skills--testing-strategy",
-        "anthropic-work--engineering--skills--system-design"
+        "addy-agent-skills--skills--planning-and-task-breakdown",
+        "addy-agent-skills--skills--api-and-interface-design",
+        "addy-agent-skills--skills--deprecation-and-migration",
+        "addy-agent-skills--skills--code-review-and-quality",
+        "addy-agent-skills--skills--security-and-hardening",
+        "jordan-codingskills--skills--kiss",
+        "jordan-codingskills--skills--solid",
+        "superpowers--skills--systematic-debugging",
+        "superpowers--skills--test-driven-development",
+        "superpowers--skills--verification-before-completion"
       ]
     },
     "token-style": {
@@ -71,6 +76,76 @@
     }
   },
   "skills": [
+    {
+      "id": "addy-agent-skills--skills--api-and-interface-design",
+      "name": "api-and-interface-design",
+      "description": "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.",
+      "source": "addy-agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/api-and-interface-design/SKILL.md",
+      "commit": "301b02b12bff98e4688e6984af6556802322bbde",
+      "path": "upstream/addy-agent-skills/skills/api-and-interface-design/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/addy-agent-skills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "cc5e2166c484b2c297e8253f56e7525e5031f81d66101ca4e760ef378ea6bad0"
+    },
+    {
+      "id": "addy-agent-skills--skills--code-review-and-quality",
+      "name": "code-review-and-quality",
+      "description": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch. Use when asked to review a diff or a pull request, even when the diff is pasted inline.",
+      "source": "addy-agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/code-review-and-quality/SKILL.md",
+      "commit": "301b02b12bff98e4688e6984af6556802322bbde",
+      "path": "upstream/addy-agent-skills/skills/code-review-and-quality/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/addy-agent-skills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "a47551daf26e3cc5670f5286f9e4850c2fc662d5ba08b86eee895254f3851797"
+    },
+    {
+      "id": "addy-agent-skills--skills--deprecation-and-migration",
+      "name": "deprecation-and-migration",
+      "description": "Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when migrating a database schema in production, such as renaming or dropping a column without downtime (expand/contract). Use when deciding whether to maintain or sunset existing code.",
+      "source": "addy-agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/deprecation-and-migration/SKILL.md",
+      "commit": "301b02b12bff98e4688e6984af6556802322bbde",
+      "path": "upstream/addy-agent-skills/skills/deprecation-and-migration/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/addy-agent-skills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "1896d7db836fc067e2856739664db9ff5bb642526fdff2126d08ec0d588da4b7"
+    },
+    {
+      "id": "addy-agent-skills--skills--planning-and-task-breakdown",
+      "name": "planning-and-task-breakdown",
+      "description": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
+      "source": "addy-agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/planning-and-task-breakdown/SKILL.md",
+      "commit": "301b02b12bff98e4688e6984af6556802322bbde",
+      "path": "upstream/addy-agent-skills/skills/planning-and-task-breakdown/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/addy-agent-skills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7"
+    },
+    {
+      "id": "addy-agent-skills--skills--security-and-hardening",
+      "name": "security-and-hardening",
+      "description": "Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or when checking a login flow is safe against the OWASP Top Ten. Use when building any feature that accepts untrusted data, manages user sessions or session cookies, or interacts with third-party services. Use when auditing dependencies for known vulnerabilities, triaging package-manager audit findings, or assessing supply-chain risk in a new package. Use when personal data or privacy compliance (GDPR, CCPA) is involved.",
+      "source": "addy-agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/security-and-hardening/SKILL.md",
+      "commit": "301b02b12bff98e4688e6984af6556802322bbde",
+      "path": "upstream/addy-agent-skills/skills/security-and-hardening/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/addy-agent-skills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "358566859a3d791c474eb9fa36939b45875c7480d7d4650eaa092dceae2c1c37"
+    },
     {
       "id": "anthropic-plugins--plugins--claude-md-management--skills--claude-md-improver",
       "name": "claude-md-improver",
@@ -997,6 +1072,176 @@
       "sha256": "27dbb2c732a9140ea3f01da6cdf7e533df5e75e9614c80e7e356c8f39c959799"
     },
     {
+      "id": "caveman--skills--caveman",
+      "name": "caveman",
+      "description": "Terse caveman voice: answer first, fluff gone, every technical fact kept. Use for /caveman, \"caveman mode\", \"talk like caveman\", \"be brief\", \"less tokens\". Stays on until \"stop caveman\" or \"normal mode\".",
+      "source": "caveman",
+      "source_url": "https://github.com/JuliusBrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/skills/caveman/SKILL.md",
+      "commit": "2e068f735253cce28256744804785f01887d9646",
+      "path": "upstream/caveman/skills/caveman/SKILL.md",
+      "license": "Apache-2.0",
+      "license_path": "upstream/caveman/LICENSE",
+      "flags": [
+        "optional_style"
+      ],
+      "status": "source import, optional profile",
+      "sha256": "415d43518f2b1a9498c15a445d4657117b129ee5e81b19454ce348439cc6672b"
+    },
+    {
+      "id": "caveman--skills--investigate-first",
+      "name": "investigate-first",
+      "description": "Diagnose ambiguous failures before editing. Use for unknown causes, intermittent behavior, performance regressions, or investigations needing evidence-ranked hypotheses.",
+      "source": "caveman",
+      "source_url": "https://github.com/JuliusBrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/skills/investigate-first/SKILL.md",
+      "commit": "2e068f735253cce28256744804785f01887d9646",
+      "path": "upstream/caveman/skills/investigate-first/SKILL.md",
+      "license": "Apache-2.0",
+      "license_path": "upstream/caveman/LICENSE",
+      "flags": [],
+      "status": "source import, optional profile",
+      "sha256": "7cc19dd2fc457eb20d65c44dee4d1b72dcdfcd1617182f5bff666700f2a055d8"
+    },
+    {
+      "id": "caveman--skills--verify-and-stop",
+      "name": "verify-and-stop",
+      "description": "Prove existing work meets acceptance conditions without expanding scope. Use for validation-only tasks, completion checks, focused gate runs, and last-mile proof.",
+      "source": "caveman",
+      "source_url": "https://github.com/JuliusBrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/skills/verify-and-stop/SKILL.md",
+      "commit": "2e068f735253cce28256744804785f01887d9646",
+      "path": "upstream/caveman/skills/verify-and-stop/SKILL.md",
+      "license": "Apache-2.0",
+      "license_path": "upstream/caveman/LICENSE",
+      "flags": [],
+      "status": "source import, optional profile",
+      "sha256": "3d5599f49771b864eba94f27f456fda295c48c1a37fa6ba2f65fdcb13cc32acb"
+    },
+    {
+      "id": "jordan-codingskills--skills--boy-scout-rule",
+      "name": "boy-scout-rule",
+      "description": "When touching existing code and wanting to leave it better. Use when the user says \"clean this up while I'm here,\" \"should I fix this,\" \"tech debt,\" \"while I'm in this file,\" or \"incremental improvement.\" For full refactoring, see solid or separation-of-concerns.",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/boy-scout-rule/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/boy-scout-rule/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "e6fcc685f0e559a7fdb72b6f63792c9ccb1c95a97786d4be5f0a86716bca1cd7"
+    },
+    {
+      "id": "jordan-codingskills--skills--convention-over-configuration",
+      "name": "convention-over-configuration",
+      "description": "When organizing project structure, establishing patterns, or reducing configuration overhead. Use when the user says \"how should I organize this,\" \"what's the convention,\" \"too much config,\" \"project structure,\" \"naming pattern,\" or \"standardize this.\" For code-level structure, see separation-of-concerns.",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/convention-over-configuration/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/convention-over-configuration/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "d1426d0929429c32d0fcad0c87dd22f67eed3169b0712157e41c65402f6e947a"
+    },
+    {
+      "id": "jordan-codingskills--skills--detect-stack",
+      "name": "detect-stack",
+      "description": "Analyze a codebase to detect its language, framework, conventions, and CI gates. Run this on first use in a project to generate stack context that all coding principle skills reference. Use when the user says \"detect stack,\" \"analyze this project,\" or \"what's this codebase using.\"",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/detect-stack/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/detect-stack/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "2d6d3fc9d8abe0c92003ded3de328db07d4c52bcebed92be49e1f2d4e2f323db"
+    },
+    {
+      "id": "jordan-codingskills--skills--dry",
+      "name": "dry",
+      "description": "When writing or reviewing code to eliminate duplicated knowledge and business logic. Use when the user says \"this is duplicated,\" \"we have this in two places,\" \"single source of truth,\" \"DRY this up,\" or \"shotgun surgery.\" For premature abstraction concerns, see yagni.",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/dry/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/dry/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "76363c88f7365445a47ffba4ed98eccee8385e03d4daa4d1f3ff6e265d436e5a"
+    },
+    {
+      "id": "jordan-codingskills--skills--kiss",
+      "name": "kiss",
+      "description": "When writing or reviewing code to reduce complexity and improve readability. Use when the user says \"simplify this,\" \"too complex,\" \"hard to read,\" \"clean up,\" \"what does this do,\" or \"can't follow this code.\" For over-engineering concerns, see yagni. For structural clarity, see separation-of-concerns.",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/kiss/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/kiss/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "6bebc910e79a373616215833ab05d241d50a51e094baa1e9a5455836693867c6"
+    },
+    {
+      "id": "jordan-codingskills--skills--law-of-demeter",
+      "name": "law-of-demeter",
+      "description": "When reviewing code for excessive coupling and deep object chains. Use when the user says \"too coupled,\" \"train wreck,\" \"chained calls,\" \"feature envy,\" \"mocking is painful,\" or \"this reaches too deep.\" For broader structural coupling, see solid.",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/law-of-demeter/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/law-of-demeter/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "eb19648bca6b88274a2a306e2703c94b1effda0dd4c76ab0349184e8a02f8eb9"
+    },
+    {
+      "id": "jordan-codingskills--skills--separation-of-concerns",
+      "name": "separation-of-concerns",
+      "description": "When structuring code into layers and modules with clear boundaries. Use when the user says \"this function does too much,\" \"fat controller,\" \"mixed concerns,\" \"where should this logic go,\" or \"separate the layers.\" For interface-level design, see solid. For object-level coupling, see law-of-demeter.",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/separation-of-concerns/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/separation-of-concerns/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "403f92d77728499ddd965b3eecb8a34fc040f6afede32e7f62287297ebfe1915"
+    },
+    {
+      "id": "jordan-codingskills--skills--solid",
+      "name": "solid",
+      "description": "When designing module boundaries, interfaces, or class hierarchies for maintainable architecture. Use when the user says \"how should I structure this,\" \"too coupled,\" \"hard to test,\" \"dependency injection,\" \"single responsibility,\" or \"interface design.\" For simpler structural concerns, see separation-of-concerns.",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/solid/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/solid/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "75d5bce7809a64d6b86b26b8aca707bf37a2f22053b4c3e603e32fde4c8e3fbe"
+    },
+    {
+      "id": "jordan-codingskills--skills--yagni",
+      "name": "yagni",
+      "description": "When writing or reviewing code to prevent over-engineering and speculative features. Use when the user says \"is this over-engineered,\" \"do we need this,\" \"should I add,\" \"future-proof,\" or \"just in case.\" For simplicity concerns, see kiss. For abstraction design, see solid.",
+      "source": "jordan-codingskills",
+      "source_url": "https://github.com/JordanCoin/codingskills/blob/d990b56b72f3f4203c13d1ef40e815893d9e7c54/skills/yagni/SKILL.md",
+      "commit": "d990b56b72f3f4203c13d1ef40e815893d9e7c54",
+      "path": "upstream/jordan-codingskills/skills/yagni/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/jordan-codingskills/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "c2176588a2e39f4d112507fd9fb58372ef27804607cb3f9da8ee3748ce8e9de8"
+    },
+    {
       "id": "kdense-science--skills--experimental-design",
       "name": "experimental-design",
       "description": "Designs experiments and studies BEFORE data is collected — choosing a design, randomizing, blocking, and laying out treatment combinations so results are interpretable. Use whenever someone is planning a study, asks how to assign subjects/samples to groups, mentions randomization, blocking, stratification, controls, factorial or fractional-factorial designs, design of experiments (DOE), screening many factors, response-surface optimization, crossover or repeated-measures or split-plot designs, cluster/group randomization, Latin squares, plate layouts, batch/run-order effects, replication vs. pseudoreplication, or sequential/adaptive/group-sequential designs. Trigger even for informal phrasings like \"how should I set up this experiment\", \"how do I avoid confounding\", \"what's the best way to test these 6 factors\", or \"assign these mice to conditions\". For computing the sample size or power once the design is chosen, use statistical-power; for analyzing data already collected, use statistical-analysis.",
@@ -1330,230 +1575,6 @@
       ],
       "status": "source-import; runtime compatibility and quality not evaluated",
       "sha256": "c9b43ca8fe60189e541afa30ea32a86f1bd7ab58a353faac777192a282b796cf"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--brainstorming",
-      "name": "brainstorming",
-      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/brainstorming/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/brainstorming/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "74edf03ea6d24ef53db48677b93558d14a979bdf052ca3f57ecdca0c66791608"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--dispatching-parallel-agents",
-      "name": "dispatching-parallel-agents",
-      "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/dispatching-parallel-agents/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/dispatching-parallel-agents/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools",
-        "subagents"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "1968923066f3b707eb01d1992cdf4c42284c3855f70253b9cd5000ff45fca13c"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--executing-plans",
-      "name": "executing-plans",
-      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/executing-plans/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/executing-plans/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools",
-        "subagents"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "c4c3d8b628c51114cd165fb8246fe02744cd8be180032328391252e653028d9b"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--finishing-a-development-branch",
-      "name": "finishing-a-development-branch",
-      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/finishing-a-development-branch/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/finishing-a-development-branch/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "8db5a922b242dd4e1bf824cb91c13b3e8d8e8a86d6ceaf7f0774eb9cce909d65"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--receiving-code-review",
-      "name": "receiving-code-review",
-      "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/receiving-code-review/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/receiving-code-review/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "091df1629510af1b92fc4abd6f96732ebedb4cb2c0f3457e8f2740b0504a2438"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--requesting-code-review",
-      "name": "requesting-code-review",
-      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/requesting-code-review/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/requesting-code-review/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "subagents"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "d71cc01ba56d2325cf8af5f7c11837819b63ecd57de0bfdb812f7f3ff7751df8"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--subagent-driven-development",
-      "name": "subagent-driven-development",
-      "description": "Use when executing implementation plans with independent tasks in the current session",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/subagent-driven-development/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/subagent-driven-development/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools",
-        "subagents"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "8dd1b8e698edec3700c6d89517dbe96febd3bacd3f6ea21c1a3569c62ea104b5"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--systematic-debugging",
-      "name": "systematic-debugging",
-      "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/systematic-debugging/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/systematic-debugging/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "808fc5717aa88ad65efff312b11c186294d3e6ee301afb584e2f86599b137787"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--test-driven-development",
-      "name": "test-driven-development",
-      "description": "Use when implementing any feature or bugfix, before writing implementation code",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/test-driven-development/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/test-driven-development/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "bf1b8216e523851a411e91d429a7c1c2a173e79d88957bc78e348218d50edd54"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--using-git-worktrees",
-      "name": "using-git-worktrees",
-      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/using-git-worktrees/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/using-git-worktrees/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "8cfb86f121269e8f7f12361e6795c4f6738828340e28964c9229d365666c9edd"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--using-superpowers",
-      "name": "using-superpowers",
-      "description": "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/using-superpowers/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/using-superpowers/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools",
-        "subagents"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "30f2ab78e20ddc27ee7158ae8d4a2abe161c360981c7cc3548070913142d3dc3"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--verification-before-completion",
-      "name": "verification-before-completion",
-      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/verification-before-completion/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/verification-before-completion/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "2befe7fc55bcadaa3d97dd9e8efeb633d2561c0ebe74c5a8b17c4d9e7e4520b3"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--writing-plans",
-      "name": "writing-plans",
-      "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/writing-plans/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/writing-plans/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools",
-        "subagents"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "48508f44bbfd7d24b029fbf3a314f3cd14c9615599059366e922f47b8dc08cf2"
-    },
-    {
-      "id": "openai-plugins--plugins--superpowers--skills--writing-skills",
-      "name": "writing-skills",
-      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
-      "source": "openai-plugins",
-      "source_url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers/skills/writing-skills/SKILL.md",
-      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
-      "path": "upstream/openai-plugins/plugins/superpowers/skills/writing-skills/SKILL.md",
-      "license": "MIT",
-      "license_path": "upstream/openai-plugins/plugins/superpowers/LICENSE",
-      "flags": [
-        "claude_tools",
-        "subagents"
-      ],
-      "status": "source-import; runtime compatibility and quality not evaluated",
-      "sha256": "d34db5c8aed6a4e0440132bd0613aace70a693ec7819d5637ad77481d8e10d1b"
     },
     {
       "id": "orchestra-research--0-autoresearch-skill",
@@ -2980,48 +3001,240 @@
       "sha256": "5a8169a5d069caf36a30e0106e523503ffba685215c3cd0067a72aa64a7e2dbb"
     },
     {
-      "id": "caveman--skills--caveman",
-      "name": "caveman",
-      "description": "Terse caveman voice: answer first, fluff gone, every technical fact kept. Use for /caveman, \"caveman mode\", \"talk like caveman\", \"be brief\", \"less tokens\". Stays on until \"stop caveman\" or \"normal mode\".",
-      "source": "caveman",
-      "source_url": "https://github.com/JuliusBrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/skills/caveman/SKILL.md",
-      "commit": "2e068f735253cce28256744804785f01887d9646",
-      "path": "upstream/caveman/skills/caveman/SKILL.md",
-      "license": "Apache-2.0",
-      "license_path": "upstream/caveman/LICENSE",
+      "id": "superpowers--skills--brainstorming",
+      "name": "brainstorming",
+      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation).",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/brainstorming/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
       "flags": [
-        "optional_style"
+        "namespaced_skill_references",
+        "subagents"
       ],
-      "status": "source import, optional profile",
-      "sha256": "415d43518f2b1a9498c15a445d4657117b129ee5e81b19454ce348439cc6672b"
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "2c9ca71f94886f9ca9f4aef055f7cafb3e1a9bdf3aeebf8f4cb547c69405d207"
     },
     {
-      "id": "caveman--skills--verify-and-stop",
-      "name": "verify-and-stop",
-      "description": "Prove existing work meets acceptance conditions without expanding scope. Use for validation-only tasks, completion checks, focused gate runs, and last-mile proof.",
-      "source": "caveman",
-      "source_url": "https://github.com/JuliusBrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/skills/verify-and-stop/SKILL.md",
-      "commit": "2e068f735253cce28256744804785f01887d9646",
-      "path": "upstream/caveman/skills/verify-and-stop/SKILL.md",
-      "license": "Apache-2.0",
-      "license_path": "upstream/caveman/LICENSE",
-      "flags": [],
-      "status": "source import, optional profile",
-      "sha256": "3d5599f49771b864eba94f27f456fda295c48c1a37fa6ba2f65fdcb13cc32acb"
+      "id": "superpowers--skills--diagnosing-superpowers",
+      "name": "diagnosing-superpowers",
+      "description": "Use when a superpowers session went wrong and your human partner wants to know why — repeated work, ignored plans, stumbles, poor results, a skill that didn't fire, \"it took too long\", \"why is it so expensive\", \"what is it doing\" — or wants to build a bug report for the superpowers maintainers, for the current session or a past one identified by id or path, on any harness.",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/diagnosing-superpowers/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/diagnosing-superpowers/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "subagents"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "3143de8695c5a2d63e8b1675f33837578076f464deb127c2ebdd0b46fceef886"
     },
     {
-      "id": "caveman--skills--investigate-first",
-      "name": "investigate-first",
-      "description": "Diagnose ambiguous failures before editing. Use for unknown causes, intermittent behavior, performance regressions, or investigations needing evidence-ranked hypotheses.",
-      "source": "caveman",
-      "source_url": "https://github.com/JuliusBrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/skills/investigate-first/SKILL.md",
-      "commit": "2e068f735253cce28256744804785f01887d9646",
-      "path": "upstream/caveman/skills/investigate-first/SKILL.md",
-      "license": "Apache-2.0",
-      "license_path": "upstream/caveman/LICENSE",
+      "id": "superpowers--skills--dispatching-parallel-agents",
+      "name": "dispatching-parallel-agents",
+      "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/dispatching-parallel-agents/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/dispatching-parallel-agents/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "subagents"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "1968923066f3b707eb01d1992cdf4c42284c3855f70253b9cd5000ff45fca13c"
+    },
+    {
+      "id": "superpowers--skills--executing-plans",
+      "name": "executing-plans",
+      "description": "Use when executing an implementation plan in the current session as the implementer yourself — your human partner chose inline execution, or no subagent tool is available",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/executing-plans/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/executing-plans/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "namespaced_skill_references",
+        "subagents"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "deaf176fa179827e80f2ea3101db3ea90fdf562ebef340eba761e4687940f5f5"
+    },
+    {
+      "id": "superpowers--skills--finishing-a-development-branch",
+      "name": "finishing-a-development-branch",
+      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/finishing-a-development-branch/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/finishing-a-development-branch/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
       "flags": [],
-      "status": "source import, optional profile",
-      "sha256": "7cc19dd2fc457eb20d65c44dee4d1b72dcdfcd1617182f5bff666700f2a055d8"
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "8db5a922b242dd4e1bf824cb91c13b3e8d8e8a86d6ceaf7f0774eb9cce909d65"
+    },
+    {
+      "id": "superpowers--skills--receiving-code-review",
+      "name": "receiving-code-review",
+      "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/receiving-code-review/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/receiving-code-review/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "091df1629510af1b92fc4abd6f96732ebedb4cb2c0f3457e8f2740b0504a2438"
+    },
+    {
+      "id": "superpowers--skills--requesting-code-review",
+      "name": "requesting-code-review",
+      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/requesting-code-review/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/requesting-code-review/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "subagents"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "2180e14a448e9410bec88e6646a2d1f0ce7fdd58de27388c1e052e929679d2bc"
+    },
+    {
+      "id": "superpowers--skills--subagent-driven-development",
+      "name": "subagent-driven-development",
+      "description": "Use when executing implementation plans with independent tasks in the current session",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/subagent-driven-development/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "namespaced_skill_references",
+        "subagents"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "1baf70e307bde682c462513c86116333f1f066168c6710f45145bf5f0b00828d"
+    },
+    {
+      "id": "superpowers--skills--systematic-debugging",
+      "name": "systematic-debugging",
+      "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/systematic-debugging/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/systematic-debugging/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "namespaced_skill_references"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "51c6435d98c83c42c96ba7c35725a0b2c376cd487fb1a4e6bd0ddbe7e33ef202"
+    },
+    {
+      "id": "superpowers--skills--test-driven-development",
+      "name": "test-driven-development",
+      "description": "Use when implementing any feature or bugfix, before writing implementation code",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/test-driven-development/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "64b03fce4aee5a97a93160cea8111f3ba13a17b7c001db4bd5836d67fd10705d"
+    },
+    {
+      "id": "superpowers--skills--using-git-worktrees",
+      "name": "using-git-worktrees",
+      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-git-worktrees/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/using-git-worktrees/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "8cfb86f121269e8f7f12361e6795c4f6738828340e28964c9229d365666c9edd"
+    },
+    {
+      "id": "superpowers--skills--using-superpowers",
+      "name": "using-superpowers",
+      "description": "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/using-superpowers/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/using-superpowers/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "namespaced_skill_references",
+        "subagents"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "82c5c8866ad7f5dd4440ce66bd7806ba48a2f13771beae5cf112e53f08fe36ba"
+    },
+    {
+      "id": "superpowers--skills--verification-before-completion",
+      "name": "verification-before-completion",
+      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/verification-before-completion/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "2befe7fc55bcadaa3d97dd9e8efeb633d2561c0ebe74c5a8b17c4d9e7e4520b3"
+    },
+    {
+      "id": "superpowers--skills--writing-plans",
+      "name": "writing-plans",
+      "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/writing-plans/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "namespaced_skill_references",
+        "subagents"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "a6c67c1900064347c2a329990dd3c555657c51c3ec53b259a08aa01a2c26139a"
+    },
+    {
+      "id": "superpowers--skills--writing-skills",
+      "name": "writing-skills",
+      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+      "source": "superpowers",
+      "source_url": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-skills/SKILL.md",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "upstream/superpowers/skills/writing-skills/SKILL.md",
+      "license": "MIT",
+      "license_path": "upstream/superpowers/LICENSE",
+      "flags": [
+        "namespaced_skill_references",
+        "subagents"
+      ],
+      "status": "source-import; runtime compatibility and quality not evaluated",
+      "sha256": "8cb3ac68c6d8c4bb46886b998b09af7989643cab8bd0e46ee86dd62e64546bbe"
     }
   ]
 }

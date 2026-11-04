@@ -19,8 +19,10 @@ import urllib.request
 ROOT = Path(__file__).resolve().parent
 BEGIN = '# BEGIN Goose Research Kit'
 END = '# END Goose Research Kit'
-PROFILES = ('research-core', 'ml-core', 'software-core', 'focused-checks')
-PAYLOAD = ('.goosehints', 'production-rules.md', 'document-tools.toml', 'portable-research-library', 'skills')
+PROFILES = ('research-core', 'ml-core', 'software-core')
+RETIRED_SKILLS = ('production-engineering', 'writing-plans', 'testing-strategy', 'system-design',
+                  'investigate-first', 'verify-and-stop')
+PAYLOAD = ('.goosehints', 'production-rules.md', 'document-tools.toml', 'portable-research-library')
 GOOSE_RELEASES = 'https://github.com/aaif-goose/goose/releases'
 PLAYWRIGHT_VERSION = '0.0.84'
 
@@ -199,7 +201,6 @@ def link_skills(library, config_dir, home, data):
         for identifier in catalog['profiles'][profile]['skills']:
             item = indexed[identifier]
             sources.setdefault(item['name'], (library / item['path']).parent)
-    sources['production-engineering'] = library.parent / 'skills/production-engineering'
     for name, source in sources.items():
         link = target / name
         if link.is_symlink() and link.resolve().is_relative_to(data):
@@ -210,8 +211,7 @@ def link_skills(library, config_dir, home, data):
                     os.replace(replacement, link)
         elif not link.exists() and not link.is_symlink() and not (home / '.agents/skills' / name / 'SKILL.md').is_file():
             link.symlink_to(source, target_is_directory=True)
-        elif name == 'production-engineering':
-            print('Сохраняю существующий навык production-engineering.', flush=True)
+    return sources.keys()
 
 
 def install_user_rules(kit, config_dir, uv, documents):
@@ -242,9 +242,13 @@ def apply_user_settings(kit, config_dir, home, data, uv, documents, browser, pat
     path = config_dir / 'config.yaml'
     config = read_config(path)
     merge_settings(config, browser, paths)
-    link_skills(kit / 'portable-research-library', config_dir, home, data)
+    selected = link_skills(kit / 'portable-research-library', config_dir, home, data)
     install_user_rules(kit, config_dir, uv, documents)
     write_file(path, yaml.safe_dump(config, allow_unicode=True, sort_keys=False), backup=True)
+    for name in RETIRED_SKILLS:
+        link = config_dir / 'skills' / name
+        if name not in selected and link.is_symlink() and link.resolve().is_relative_to(data):
+            link.unlink()
 
 
 def install_payload(data, temporary):

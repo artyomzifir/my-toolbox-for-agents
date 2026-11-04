@@ -93,10 +93,5 @@
     "path": "upstream/anthropic-work/productivity/.mcp.json",
     "kind": ".mcp.json",
     "status": "reference config only; no connection or authentication performed"
-  },
-  {
-    "path": "upstream/openai-plugins/plugins/superpowers/.codex-plugin/plugin.json",
-    "kind": "plugin.json",
-    "status": "reference config only; no connection or authentication performed"
   }
 ]

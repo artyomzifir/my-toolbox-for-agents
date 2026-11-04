@@ -4,6 +4,11 @@
 
 | ID | Навык | Источник | Лицензия | Флаги адаптации |
 |---|---|---|---|---|
+| addy-agent-skills--skills--api-and-interface-design | api-and-interface-design | addy-agent-skills | MIT |  |
+| addy-agent-skills--skills--code-review-and-quality | code-review-and-quality | addy-agent-skills | MIT |  |
+| addy-agent-skills--skills--deprecation-and-migration | deprecation-and-migration | addy-agent-skills | MIT |  |
+| addy-agent-skills--skills--planning-and-task-breakdown | planning-and-task-breakdown | addy-agent-skills | MIT |  |
+| addy-agent-skills--skills--security-and-hardening | security-and-hardening | addy-agent-skills | MIT |  |
 | anthropic-plugins--plugins--claude-md-management--skills--claude-md-improver | claude-md-improver | anthropic-plugins | Apache-2.0 | claude_tools |
 | anthropic-plugins--plugins--frontend-design--skills--frontend-design | frontend-design | anthropic-plugins | Apache-2.0 | claude_tools |
 | anthropic-plugins--plugins--mcp-server-dev--skills--build-mcp-app | build-mcp-app | anthropic-plugins | Apache-2.0 |  |
@@ -62,6 +67,18 @@
 | anthropic-work--productivity--skills--start | start | anthropic-work | Apache-2.0 | claude_tools, claude_plugin_root |
 | anthropic-work--productivity--skills--task-management | task-management | anthropic-work | Apache-2.0 | claude_tools, claude_plugin_root, connected_apps |
 | anthropic-work--productivity--skills--update | update | anthropic-work | Apache-2.0 | claude_tools |
+| caveman--skills--caveman | caveman | caveman | Apache-2.0 | optional_style |
+| caveman--skills--investigate-first | investigate-first | caveman | Apache-2.0 |  |
+| caveman--skills--verify-and-stop | verify-and-stop | caveman | Apache-2.0 |  |
+| jordan-codingskills--skills--boy-scout-rule | boy-scout-rule | jordan-codingskills | MIT |  |
+| jordan-codingskills--skills--convention-over-configuration | convention-over-configuration | jordan-codingskills | MIT |  |
+| jordan-codingskills--skills--detect-stack | detect-stack | jordan-codingskills | MIT |  |
+| jordan-codingskills--skills--dry | dry | jordan-codingskills | MIT |  |
+| jordan-codingskills--skills--kiss | kiss | jordan-codingskills | MIT |  |
+| jordan-codingskills--skills--law-of-demeter | law-of-demeter | jordan-codingskills | MIT |  |
+| jordan-codingskills--skills--separation-of-concerns | separation-of-concerns | jordan-codingskills | MIT |  |
+| jordan-codingskills--skills--solid | solid | jordan-codingskills | MIT |  |
+| jordan-codingskills--skills--yagni | yagni | jordan-codingskills | MIT |  |
 | kdense-science--skills--experimental-design | experimental-design | kdense-science | MIT | claude_tools |
 | kdense-science--skills--exploratory-data-analysis | exploratory-data-analysis | kdense-science | MIT | claude_tools |
 | kdense-science--skills--hypothesis-generation | hypothesis-generation | kdense-science | MIT | claude_tools |
@@ -83,20 +100,6 @@
 | kdense-science--skills--transformers | transformers | kdense-science | MIT | claude_tools |
 | openai-plugins--plugins--openai-developers--skills--build-chatgpt-app | build-chatgpt-app | openai-plugins | Apache-2.0 | claude_tools, openai_runtime, connected_apps |
 | openai-plugins--plugins--openai-developers--skills--chatgpt-app-submission | chatgpt-app-submission | openai-plugins | Apache-2.0 | claude_tools |
-| openai-plugins--plugins--superpowers--skills--brainstorming | brainstorming | openai-plugins | MIT | claude_tools |
-| openai-plugins--plugins--superpowers--skills--dispatching-parallel-agents | dispatching-parallel-agents | openai-plugins | MIT | claude_tools, subagents |
-| openai-plugins--plugins--superpowers--skills--executing-plans | executing-plans | openai-plugins | MIT | claude_tools, subagents |
-| openai-plugins--plugins--superpowers--skills--finishing-a-development-branch | finishing-a-development-branch | openai-plugins | MIT |  |
-| openai-plugins--plugins--superpowers--skills--receiving-code-review | receiving-code-review | openai-plugins | MIT |  |
-| openai-plugins--plugins--superpowers--skills--requesting-code-review | requesting-code-review | openai-plugins | MIT | subagents |
-| openai-plugins--plugins--superpowers--skills--subagent-driven-development | subagent-driven-development | openai-plugins | MIT | claude_tools, subagents |
-| openai-plugins--plugins--superpowers--skills--systematic-debugging | systematic-debugging | openai-plugins | MIT | claude_tools |
-| openai-plugins--plugins--superpowers--skills--test-driven-development | test-driven-development | openai-plugins | MIT | claude_tools |
-| openai-plugins--plugins--superpowers--skills--using-git-worktrees | using-git-worktrees | openai-plugins | MIT |  |
-| openai-plugins--plugins--superpowers--skills--using-superpowers | using-superpowers | openai-plugins | MIT | claude_tools, subagents |
-| openai-plugins--plugins--superpowers--skills--verification-before-completion | verification-before-completion | openai-plugins | MIT | claude_tools |
-| openai-plugins--plugins--superpowers--skills--writing-plans | writing-plans | openai-plugins | MIT | claude_tools, subagents |
-| openai-plugins--plugins--superpowers--skills--writing-skills | writing-skills | openai-plugins | MIT | claude_tools, subagents |
 | orchestra-research--0-autoresearch-skill | autoresearch | orchestra-research | MIT | claude_tools, automatic_loop |
 | orchestra-research--01-model-architecture--litgpt | implementing-llms-litgpt | orchestra-research | MIT | claude_tools |
 | orchestra-research--01-model-architecture--mamba | mamba-architecture | orchestra-research | MIT |  |
@@ -195,6 +198,18 @@
 | orchestra-research--22-agent-native-research-artifact--compiler | ara-compiler | orchestra-research | MIT | claude_tools |
 | orchestra-research--22-agent-native-research-artifact--research-manager | ara-research-manager | orchestra-research | MIT | claude_tools |
 | orchestra-research--22-agent-native-research-artifact--rigor-reviewer | ara-rigor-reviewer | orchestra-research | MIT | claude_tools |
-| caveman--skills--caveman | caveman | caveman | Apache-2.0 | optional_style |
-| caveman--skills--verify-and-stop | verify-and-stop | caveman | Apache-2.0 |  |
-| caveman--skills--investigate-first | investigate-first | caveman | Apache-2.0 |  |
+| superpowers--skills--brainstorming | brainstorming | superpowers | MIT | namespaced_skill_references, subagents |
+| superpowers--skills--diagnosing-superpowers | diagnosing-superpowers | superpowers | MIT | subagents |
+| superpowers--skills--dispatching-parallel-agents | dispatching-parallel-agents | superpowers | MIT | subagents |
+| superpowers--skills--executing-plans | executing-plans | superpowers | MIT | namespaced_skill_references, subagents |
+| superpowers--skills--finishing-a-development-branch | finishing-a-development-branch | superpowers | MIT |  |
+| superpowers--skills--receiving-code-review | receiving-code-review | superpowers | MIT |  |
+| superpowers--skills--requesting-code-review | requesting-code-review | superpowers | MIT | subagents |
+| superpowers--skills--subagent-driven-development | subagent-driven-development | superpowers | MIT | namespaced_skill_references, subagents |
+| superpowers--skills--systematic-debugging | systematic-debugging | superpowers | MIT | namespaced_skill_references |
+| superpowers--skills--test-driven-development | test-driven-development | superpowers | MIT |  |
+| superpowers--skills--using-git-worktrees | using-git-worktrees | superpowers | MIT |  |
+| superpowers--skills--using-superpowers | using-superpowers | superpowers | MIT | namespaced_skill_references, subagents |
+| superpowers--skills--verification-before-completion | verification-before-completion | superpowers | MIT |  |
+| superpowers--skills--writing-plans | writing-plans | superpowers | MIT | namespaced_skill_references, subagents |
+| superpowers--skills--writing-skills | writing-skills | superpowers | MIT | namespaced_skill_references, subagents |
