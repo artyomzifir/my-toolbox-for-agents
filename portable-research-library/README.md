@@ -29,7 +29,7 @@ Exact URLs, commit SHAs and upstream license texts live in `sources.lock.json` a
 
 ## Wiring into Goose
 
-Goose R&D Kit already carries the routing rules in its `.goosehints`. To move the library into another project, copy the `portable-research-library/` directory and add the research rules from the kit's `.goosehints` to that project's rules.
+Goose R&D Kit already carries the routing rules in `templates/.goosehints`. To move the library into another project, copy the `portable-research-library/` directory and add the research rules from the kit's `templates/.goosehints` to that project's rules.
 
 By default the library does not inject hundreds of skills into context and does not connect external services. The agent searches procedures with a local command, reads one to three relevant files, and uses them as working guidance.
 
@@ -80,7 +80,7 @@ The kit's research rules are a policy written for this setup. They do not reprod
 On one API model, with identical tools and budget, compare:
 
 1. Starter without the library.
-2. Starter with the shared research policy from the kit's `.goosehints`.
+2. Starter with the shared research policy from the kit's `templates/.goosehints`.
 3. The same policy plus one to three selected procedures.
 
 Use real tasks and record constraint retention after compaction, reference accuracy, completeness, user interventions, cost, time and repeated actions. Test additional connectors as a separate change so it is clear where any improvement came from.

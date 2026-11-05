@@ -23,7 +23,7 @@ LEGACY_BLOCKS = (('# BEGIN Goose Research Kit', '# END Goose Research Kit'),)
 PROFILES = ('research-core', 'ml-core', 'software-core')
 RETIRED_SKILLS = ('production-engineering', 'writing-plans', 'testing-strategy', 'system-design',
                   'investigate-first', 'verify-and-stop')
-PAYLOAD = ('.goosehints', 'production-rules.md', 'document-tools.toml', 'portable-research-library')
+PAYLOAD = ('templates', 'document-tools.toml', 'portable-research-library')
 GOOSE_RELEASES = 'https://github.com/aaif-goose/goose/releases'
 PLAYWRIGHT_VERSION = '0.0.84'
 
@@ -222,7 +222,7 @@ def install_user_rules(kit, config_dir, uv, documents):
         legacy = re.compile(rf'(?ms)^{re.escape(old_begin)}\n.*?^{re.escape(old_end)}\n?')
         current = legacy.sub('', current)
     catalogue = shlex.quote(str(kit / 'portable-research-library/catalog.py'))
-    rules = (kit / '.goosehints').read_text(encoding='utf-8').replace(
+    rules = (kit / 'templates/.goosehints').read_text(encoding='utf-8').replace(
         'portable-research-library/catalog.py', catalogue)
     caveman = kit / 'portable-research-library/upstream/caveman/skills/caveman/SKILL.md'
     rules = rules.replace('Enable Caveman only on an explicit request.',
@@ -230,7 +230,7 @@ def install_user_rules(kit, config_dir, uv, documents):
     python_tools = f'{shlex.quote(str(uv))} run --project {shlex.quote(str(documents))}'
     rules = rules.replace('Run project Python tools through `uv run`.',
                           f'For Docling, Word, Excel and charts run `{python_tools}` before the command. For repository code use the project environment.')
-    production = (kit / 'production-rules.md').read_text(encoding='utf-8').rstrip()
+    production = (kit / 'templates/production-rules.md').read_text(encoding='utf-8').rstrip()
     block = f'{BEGIN}\n{rules.rstrip()}\n\n{production}\n{END}'
     pattern = re.compile(rf'(?ms)^{re.escape(BEGIN)}\n.*?^{re.escape(END)}$')
     if pattern.search(current):

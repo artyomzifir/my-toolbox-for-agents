@@ -9,11 +9,9 @@ It installs Goose, Playwright MCP, LLM routing rules, document tooling (Docling,
 | Component | Purpose |
 |---|---|
 | `install.sh` / `install.py` | Idempotent installer; run as a regular user, not root |
-| `.goosehints` | Global routing rules: when to search the library, how to keep state, how to verify claims |
-| `production-rules.md` | Which engineering skill to load for which task |
 | `portable-research-library/` | Pinned snapshot of upstream skills, commands and plugins with a local index |
 | `_vendor/` | Vendored PyYAML (MIT) so `install.py` can parse `config.yaml` without pip or touching system Python |
-| `templates/` | `PROJECT_STATE.md` and `SOURCES.md` to copy into a research project |
+| `templates/` | Rules the installer injects into Goose (`templates/.goosehints` research policy, `templates/production-rules.md` skill routing) plus `PROJECT_STATE.md` and `SOURCES.md` project templates |
 | `start-research.sh` | Session wrapper: project state file, turn limits, repetition guard |
 | `document-tools.toml` | `uv` project for document and chart work |
 
@@ -127,7 +125,7 @@ chmod +x .git/hooks/commit-msg
 
 ## Working in a research project
 
-Copy `templates/PROJECT_STATE.md` and `templates/SOURCES.md` into the project, then start the session through the wrapper:
+The installer turns `templates/.goosehints` and `templates/production-rules.md` into the global Goose rules. For a research project, copy `templates/PROJECT_STATE.md` and `templates/SOURCES.md` into it, then start the session through the wrapper:
 
 ```bash
 bash start-research.sh          # new session
