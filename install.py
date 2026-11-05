@@ -1,4 +1,4 @@
-"""Install Goose and the research kit for the current Linux user."""
+"""Install Goose and the R&D kit for the current Linux user."""
 
 import argparse
 import fcntl
@@ -17,8 +17,9 @@ import urllib.request
 
 
 ROOT = Path(__file__).resolve().parent
-BEGIN = '# BEGIN Goose Research Kit'
-END = '# END Goose Research Kit'
+BEGIN = '# BEGIN Goose R&D Kit'
+END = '# END Goose R&D Kit'
+LEGACY_BLOCKS = (('# BEGIN Goose Research Kit', '# END Goose Research Kit'),)
 PROFILES = ('research-core', 'ml-core', 'software-core')
 RETIRED_SKILLS = ('production-engineering', 'writing-plans', 'testing-strategy', 'system-design',
                   'investigate-first', 'verify-and-stop')
@@ -217,6 +218,9 @@ def link_skills(library, config_dir, home, data):
 def install_user_rules(kit, config_dir, uv, documents):
     hints = config_dir / '.goosehints'
     current = hints.read_text(encoding='utf-8') if hints.exists() else ''
+    for old_begin, old_end in LEGACY_BLOCKS:
+        legacy = re.compile(rf'(?ms)^{re.escape(old_begin)}\n.*?^{re.escape(old_end)}\n?')
+        current = legacy.sub('', current)
     catalogue = shlex.quote(str(kit / 'portable-research-library/catalog.py'))
     rules = (kit / '.goosehints').read_text(encoding='utf-8').replace(
         'portable-research-library/catalog.py', catalogue)

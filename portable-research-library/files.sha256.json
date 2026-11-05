@@ -1077,8 +1077,8 @@
   "upstream/superpowers/skills/writing-skills/references/persuasion-principles.md": "a51bc9bf75189ea73a27b3fb504a2fdfdb966fb1f7f1cdf03203230a216ccc03",
   "upstream/superpowers/skills/writing-skills/references/testing-skills-with-subagents.md": "ed8a6862c085900135962390530d9dc7637ad6d650b4324ce3b051287a5c3f22",
   "upstream/superpowers/skills/writing-skills/render-graphs.js": "c7f412cc629461c4d10287e668731874c0497707023e3e3f74a5355eb2cee196",
-  "README.md": "ed357ebe944948b291fc7e30259c20559c439586a1000d1a90ea51ff4ae9d3a4",
-  "upstream/goose-research-kit/skills/conventional-commits/SKILL.md": "beac7f15bcbe55968f7f5547013e54b1c7f082ef174533e47b025ddc633aa979",
-  "upstream/goose-research-kit/skills/conventional-commits/scripts/commit-msg": "00a442eaa7e5861a01144d4b43a3a81578d3cbc3774b8b5d8b8c30f4f09ea64f",
-  "upstream/goose-research-kit/skills/conventional-commits/tests/run-tests.sh": "3f2fea0fb7b9600f191fc5a314bc972957908f36602eed636afe42fc03849b3d"
+  "README.md": "a813fad31fa421cc76306e66a4c4796223742141e59ce5f773575fe16ff2cdea",
+  "upstream/goose-research-kit/skills/conventional-commits/SKILL.md": "de071493e2972858d479ed3643443369164594f697970e636a0c3c101947d6a2",
+  "upstream/goose-research-kit/skills/conventional-commits/scripts/commit-msg": "25f7e584c17c22d3bde1208ed4c7688d4cfcdd06b98791e9df01711c6584c672",
+  "upstream/goose-research-kit/skills/conventional-commits/tests/run-tests.sh": "7f0d3f122201392e26eb72912adb965edbdab32ebb0633c76911e5f6cbab80b6"
 }

@@ -1,4 +1,4 @@
-# Goose Research Kit
+# Goose R&D Kit
 
 A one-user Ubuntu setup for [Goose](https://github.com/aaif-goose/goose) that turns a fresh CLI or Desktop install into a working research and engineering agent.
 

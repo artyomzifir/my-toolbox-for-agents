@@ -54,6 +54,9 @@ breaking change: endpoints removed'
 check 'footer token with space'   fail 'fix: prevent race
 
 Reviewed by: Z'
+check 'co-author trailer'          fail 'feat: add parser
+
+Co-authored-by: goose <goose@example.com>'
 check 'fixup marker'              fail 'fixup! feat: add parser'
 check 'empty message'             fail ''
 

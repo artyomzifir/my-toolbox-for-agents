@@ -96,11 +96,12 @@ Details:
 ```
 Reviewed-by: Z
 Refs: #123
-Co-authored-by: Name <email>
+Closes: #124
 ```
 
 - Token uses `-`; value follows `: ` (or ` #` for numbers).
 - Use the tokens the repository already recognizes. Do not invent new ones without need.
+- Never add `Co-authored-by`, `Signed-off-by` or similar attribution trailers on your own. The commit belongs to the repository owner; add such a trailer only when the owner explicitly asks for it.
 
 ## Revert
 

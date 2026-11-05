@@ -1,6 +1,6 @@
 # Portable procedure library for a research agent
 
-A snapshot of open-source skills, commands and plugins, refreshed on 4 November 2026. The library ships with Goose Research Kit. Versions and licenses are recorded in the catalog and `sources.lock.json`.
+A snapshot of open-source skills, commands and plugins, refreshed on 4 November 2026. The library ships with Goose R&D Kit. Versions and licenses are recorded in the catalog and `sources.lock.json`.
 
 The snapshot holds 209 upstream skills, 22 command and agent procedure files, 19 plugin configurations and manifests, five public Codex prompt files, and one skill owned by this kit.
 
@@ -23,13 +23,13 @@ Readiness varies. A file being present, or passing a format check, does not prov
 - JordanCoin Coding Skills: nine skills about engineering principles. `kiss` and `solid` belong to the `software-core` profile.
 - Superpowers: a direct snapshot of the obra project. `software-core` uses its linked diagnosis, TDD and verification procedures; the wider process stays in the catalog.
 - OpenAI Codex: five public files with base instructions, history compaction and a review rubric. These are Codex CLI sources, not a complete ChatGPT Work or Claude Code system prompt.
-- Goose Research Kit: the kit-owned `conventional-commits` skill, maintained in this repository rather than imported.
+- Goose R&D Kit: the kit-owned `conventional-commits` skill, maintained in this repository rather than imported.
 
 Exact URLs, commit SHAs and upstream license texts live in `sources.lock.json` and `catalog.json`. License selection was conservative: material without a confirmed MIT/Apache-2.0 license, or with explicit restrictions, was not added. Keep the included notices and licenses. A permissive license on a procedure does not license the third-party services, models or data it mentions.
 
 ## Wiring into Goose
 
-Goose Research Kit already carries the routing rules in its `.goosehints`. To move the library into another project, copy the `portable-research-library/` directory and add the research rules from the kit's `.goosehints` to that project's rules.
+Goose R&D Kit already carries the routing rules in its `.goosehints`. To move the library into another project, copy the `portable-research-library/` directory and add the research rules from the kit's `.goosehints` to that project's rules.
 
 By default the library does not inject hundreds of skills into context and does not connect external services. The agent searches procedures with a local command, reads one to three relevant files, and uses them as working guidance.
 

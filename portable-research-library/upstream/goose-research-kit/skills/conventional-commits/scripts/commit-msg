@@ -58,6 +58,12 @@ if [ -n "$second" ]; then
     fail "missing blank line after the description" "line 2 is: $second"
 fi
 
+# No unsolicited attribution trailers: the commit belongs to the repository owner.
+if grep -Eiq '^(co-authored-by|signed-off-by|co-developed-by):' "$clean"; then
+    fail "attribution trailer is not allowed" \
+        "drop the Co-authored-by/Signed-off-by line unless the owner asked for it"
+fi
+
 # Breaking change spelling: the footer token must be uppercase.
 if grep -Eq '^[Bb][Rr][Ee][Aa][Kk][Ii][Nn][Gg][ -][Cc][Hh][Aa][Nn][Gg][Ee]:' "$clean"; then
     grep -Eq '^BREAKING[ -]CHANGE: ' "$clean" || fail \
