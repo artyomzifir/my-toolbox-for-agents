@@ -6,7 +6,7 @@ cd -- "$research_project_dir"
 export PATH="$HOME/.local/bin:$PATH"
 
 if ! command -v goose >/dev/null 2>&1; then
-  printf '%s\n' 'Goose CLI не найден. Выполни шаг 1 README.ru.md.' >&2
+  printf '%s\n' 'Goose CLI not found. Install Goose first: see README.md.' >&2
   exit 1
 fi
 

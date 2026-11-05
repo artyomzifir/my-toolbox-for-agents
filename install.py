@@ -80,8 +80,8 @@ def get_node(data, temporary, local_bin):
 
     arch = {'x86_64': 'x64', 'aarch64': 'arm64'}.get(platform.machine())
     if not arch:
-        raise RuntimeError('Для этой архитектуры нужен установленный Node.js 20+ с npm.')
-    print('Устанавливаю Node.js для браузера.', flush=True)
+        raise RuntimeError('This architecture needs Node.js 20+ with npm installed.')
+    print('Installing Node.js for the browser.', flush=True)
     releases = 'https://nodejs.org/dist/latest-v24.x/'
     sums = temporary / 'node-sha256.txt'
     download(releases + 'SHASUMS256.txt', sums)
@@ -90,11 +90,11 @@ def get_node(data, temporary, local_bin):
         if re.fullmatch(rf'node-v24\.\d+\.\d+-linux-{arch}\.tar\.xz', filename):
             break
     else:
-        raise RuntimeError('Node.js не найден в официальном списке релиза.')
+        raise RuntimeError('Node.js is missing from the official release list.')
     archive = temporary / filename
     download(releases + filename, archive)
     if sha256(archive) != digest:
-        raise RuntimeError('Контрольная сумма Node.js не совпала.')
+        raise RuntimeError('Node.js checksum mismatch.')
     run(['tar', '-xJf', archive, '-C', temporary])
     os.replace(temporary / filename.removesuffix('.tar.xz'), data / 'node')
     return managed
@@ -119,11 +119,11 @@ def browser_config(data, temporary, local_bin, existing):
     browser.mkdir(exist_ok=True)
     env = node_environment(node)
     if not cli.is_file() or not (playwright / 'cli.js').is_file():
-        print('Устанавливаю Playwright MCP.', flush=True)
+        print('Installing Playwright MCP.', flush=True)
         run([node.parent / 'npm', 'install', '--prefix', browser, '--no-audit',
              '--no-fund', '--save-exact', f'@playwright/mcp@{PLAYWRIGHT_VERSION}'], env=env)
     if not ready.is_file():
-        print('Готовлю Firefox для Playwright.', flush=True)
+        print('Preparing Firefox for Playwright.', flush=True)
         run([node, playwright / 'cli.js', 'install', 'firefox'], env=env)
         smoke = "require(process.argv[1]).firefox.launch().then(b => b.close()).catch(e => { console.error(e.message); process.exit(1); })"
         try:
@@ -158,22 +158,22 @@ def read_config(path):
     try:
         result = yaml.safe_load(path.read_text(encoding='utf-8'))
     except yaml.YAMLError:
-        raise ValueError(f'Проверь YAML в {path}. Существующий файл сохранён.') from None
+        raise ValueError(f'Check the YAML in {path}. The existing file was kept.') from None
     if result is None:
         return {}
     if not isinstance(result, dict):
-        raise ValueError('Корень config.yaml должен быть YAML-объектом.')
+        raise ValueError('The root of config.yaml must be a YAML mapping.')
     return result
 
 
 def merge_settings(config, browser, search_paths):
     extensions = config.setdefault('extensions', {})
     if not isinstance(extensions, dict):
-        raise ValueError('Раздел extensions должен быть YAML-объектом.')
+        raise ValueError('The extensions section must be a YAML mapping.')
     for name in ('developer', 'skills', 'todo', 'chatrecall'):
         extension = extensions.setdefault(name, {'name': name, 'type': 'platform', 'bundled': True})
         if not isinstance(extension, dict):
-            raise ValueError(f'Настройка расширения {name} должна быть YAML-объектом.')
+            raise ValueError(f'The {name} extension setting must be a YAML mapping.')
         extension['enabled'] = True
     extensions['playwright'] = browser
     for key, value in {
@@ -187,7 +187,7 @@ def merge_settings(config, browser, search_paths):
         config.setdefault(key, value)
     previous_paths = config.get('GOOSE_SEARCH_PATHS') or []
     if not isinstance(previous_paths, list):
-        raise ValueError('GOOSE_SEARCH_PATHS должен быть списком.')
+        raise ValueError('GOOSE_SEARCH_PATHS must be a list.')
     config['GOOSE_SEARCH_PATHS'] = list(dict.fromkeys([*previous_paths, *search_paths]))
 
 
@@ -221,11 +221,11 @@ def install_user_rules(kit, config_dir, uv, documents):
     rules = (kit / '.goosehints').read_text(encoding='utf-8').replace(
         'portable-research-library/catalog.py', catalogue)
     caveman = kit / 'portable-research-library/upstream/caveman/skills/caveman/SKILL.md'
-    rules = rules.replace('Включай Caveman по явной просьбе пользователя.',
-                          f'По явной просьбе о Caveman прочитай `{caveman}`.')
+    rules = rules.replace('Enable Caveman only on an explicit request.',
+                          f'On an explicit Caveman request read `{caveman}`.')
     python_tools = f'{shlex.quote(str(uv))} run --project {shlex.quote(str(documents))}'
-    rules = rules.replace('Python-инструменты проекта запускай через `uv run`.',
-                          f'Для Docling, Word, Excel и графиков используй `{python_tools}` перед командой. Для кода репозитория используй окружение проекта.')
+    rules = rules.replace('Run project Python tools through `uv run`.',
+                          f'For Docling, Word, Excel and charts run `{python_tools}` before the command. For repository code use the project environment.')
     production = (kit / 'production-rules.md').read_text(encoding='utf-8').rstrip()
     block = f'{BEGIN}\n{rules.rstrip()}\n\n{production}\n{END}'
     pattern = re.compile(rf'(?ms)^{re.escape(BEGIN)}\n.*?^{re.escape(END)}$')
@@ -280,27 +280,27 @@ def install_desktop(temporary):
         return
     arch = {'x86_64': 'amd64', 'aarch64': 'arm64'}.get(platform.machine())
     if not arch:
-        raise RuntimeError('Для Goose Desktop требуется x86_64 или ARM64.')
+        raise RuntimeError('Goose Desktop requires x86_64 or ARM64.')
     metadata = temporary / 'goose-release.json'
     download('https://api.github.com/repos/aaif-goose/goose/releases/latest', metadata)
     assets = json.loads(metadata.read_text(encoding='utf-8'))['assets']
     asset = next((item for item in assets if re.fullmatch(rf'goose_[\w.-]+_{arch}\.deb', item['name'], re.I)), None)
     if not asset or not (asset.get('digest') or '').startswith('sha256:'):
-        raise RuntimeError('В последнем релизе Goose не найден DEB с контрольной суммой.')
+        raise RuntimeError('The latest Goose release has no DEB with a checksum.')
     url = asset['browser_download_url']
     if not url.startswith(GOOSE_RELEASES + '/download/'):
-        raise RuntimeError('Неожиданный источник пакета Goose Desktop.')
+        raise RuntimeError('Unexpected download source for the Goose Desktop package.')
     package = temporary / asset['name']
-    print('Устанавливаю Goose Desktop. Для apt может понадобиться пароль sudo.', flush=True)
+    print('Installing Goose Desktop. apt may ask for the sudo password.', flush=True)
     download(url, package)
     if 'sha256:' + sha256(package) != asset['digest']:
-        raise RuntimeError('Контрольная сумма Goose Desktop не совпала.')
+        raise RuntimeError('Goose Desktop checksum mismatch.')
     subprocess.run(['sudo', 'apt-get', 'install', '-y', str(package)], check=True)
 
 
 def main(desktop):
     if sys.platform != 'linux' or os.geteuid() == 0:
-        raise RuntimeError('Запусти установщик на Ubuntu от обычного пользователя.')
+        raise RuntimeError('Run the installer on Ubuntu as a regular user.')
     home = Path.home()
     local_bin = home / '.local/bin'
     config_home = Path(os.environ.get('XDG_CONFIG_HOME') or home / '.config')
@@ -317,17 +317,17 @@ def main(desktop):
         config = read_config(config_dir / 'config.yaml')
         extensions = config.get('extensions', {})
         if not isinstance(extensions, dict):
-            raise ValueError('Раздел extensions должен быть YAML-объектом.')
+            raise ValueError('The extensions section must be a YAML mapping.')
         goose = executable('goose', local_bin)
         if not goose:
-            print('Устанавливаю Goose CLI.', flush=True)
+            print('Installing Goose CLI.', flush=True)
             run_installer(GOOSE_RELEASES + '/download/stable/download_cli.sh',
                           'bash', temporary, {'CONFIGURE': 'false', 'GOOSE_BIN_DIR': str(local_bin),
                                              'SHELL': os.environ.get('SHELL') or '/bin/bash'})
             goose = local_bin / 'goose'
         uv = executable('uv', local_bin)
         if not uv:
-            print('Устанавливаю uv.', flush=True)
+            print('Installing uv.', flush=True)
             run_installer('https://astral.sh/uv/install.sh', 'sh', temporary,
                           {'UV_INSTALL_DIR': str(local_bin), 'UV_NO_MODIFY_PATH': '1'})
             uv = local_bin / 'uv'
@@ -340,13 +340,13 @@ def main(desktop):
         apply_user_settings(kit, config_dir, home, data, uv, documents, browser,
                             [str(local_bin), str(uv.parent), *paths])
         if not executable('rtk', local_bin):
-            print('Устанавливаю RTK OSS для фильтрации длинных логов.', flush=True)
+            print('Installing RTK OSS for filtering long logs.', flush=True)
             try:
                 run_installer('https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh',
                               'sh', temporary, {'RTK_EDITION': 'oss', 'RTK_INSTALL_DIR': str(local_bin),
                                                 'RTK_SKIP_CHECKSUM': '0'})
             except (OSError, subprocess.CalledProcessError):
-                print('RTK OSS сейчас недоступен. Goose настроен и готов к запуску.')
+                print('RTK OSS is unavailable right now. Goose is configured and ready.')
         if shutil.which('goose') is None:
             profile = home / '.bashrc'
             current = profile.read_text(encoding='utf-8') if profile.exists() else ''
@@ -354,21 +354,21 @@ def main(desktop):
             if path_line not in current.splitlines():
                 with profile.open('a', encoding='utf-8') as output:
                     output.write('\n' + path_line + '\n')
-            print('Открой новый терминал Bash, чтобы команда goose появилась в PATH.')
+            print('Open a new Bash terminal so the goose command appears in PATH.')
         run([goose, '--version'])
         if desktop:
             install_desktop(temporary)
-    print(f'Готово. Настройки Goose: {config_dir}. Запускай goose из любой рабочей папки.')
+    print(f'Done. Goose settings: {config_dir}. Run goose from any working directory.')
     if not config.get('GOOSE_PROVIDER') and not os.environ.get('GOOSE_PROVIDER'):
-        print('Для первого запуска выбери свой провайдер и модель через goose configure или настройки Desktop.')
+        print('For the first run pick a provider and model in goose configure or Desktop settings.')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--desktop', action='store_true', help='также установить Goose Desktop через apt')
+    parser.add_argument('--desktop', action='store_true', help='also install Goose Desktop via apt')
     options = parser.parse_args()
     try:
         main(options.desktop)
     except (OSError, ValueError, RuntimeError, subprocess.CalledProcessError) as error:
-        print(f'Установка остановилась: {error}', file=sys.stderr)
+        print(f'Installation stopped: {error}', file=sys.stderr)
         sys.exit(1)

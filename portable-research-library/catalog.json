@@ -3,7 +3,7 @@
   "status": "source library, not an end-to-end validated agent distribution",
   "profiles": {
     "research-core": {
-      "description": "Семь кандидатов для обзора, критики, гипотез, эксперимента, статистики и отчёта. Проверить на задачах пользователя.",
+      "description": "Seven candidates for review, critique, hypotheses, experiment design, statistics and reporting. Validate on real tasks.",
       "skills": [
         "kdense-science--skills--literature-review",
         "kdense-science--skills--scientific-critical-thinking",
@@ -15,7 +15,7 @@
       ]
     },
     "research-expanded": {
-      "description": "Дополнительные научные процедуры; сначала испытать research-core.",
+      "description": "Additional scientific procedures; try research-core first.",
       "skills": [
         "kdense-science--skills--literature-review",
         "kdense-science--skills--scientific-critical-thinking",
@@ -36,7 +36,7 @@
       ]
     },
     "ml-core": {
-      "description": "ML-инженерия и оценивание; зависимости и версии библиотек проверяются отдельно.",
+      "description": "ML engineering and evaluation; library versions are checked separately.",
       "skills": [
         "orchestra-research--03-fine-tuning--peft",
         "orchestra-research--04-mechanistic-interpretability--transformer-lens",
@@ -47,7 +47,7 @@
       ]
     },
     "software-core": {
-      "description": "Addy для плана, контрактов, миграций и ревью, JordanCoin для KISS/SOLID, Superpowers для диагностики, TDD и проверки.",
+      "description": "Addy for planning, contracts, migrations and review, JordanCoin for KISS/SOLID, Superpowers for diagnosis, TDD and verification.",
       "skills": [
         "addy-agent-skills--skills--planning-and-task-breakdown",
         "addy-agent-skills--skills--api-and-interface-design",
@@ -58,17 +58,18 @@
         "jordan-codingskills--skills--solid",
         "superpowers--skills--systematic-debugging",
         "superpowers--skills--test-driven-development",
-        "superpowers--skills--verification-before-completion"
+        "superpowers--skills--verification-before-completion",
+        "goose-research-kit--skills--conventional-commits"
       ]
     },
     "token-style": {
-      "description": "Caveman для коротких ответов по явной просьбе.",
+      "description": "Caveman for short answers on explicit request.",
       "skills": [
         "caveman--skills--caveman"
       ]
     },
     "focused-checks": {
-      "description": "Фокус на диагностике и достаточной проверке.",
+      "description": "Focus on diagnosis and sufficient verification.",
       "skills": [
         "caveman--skills--investigate-first",
         "caveman--skills--verify-and-stop"
@@ -3235,6 +3236,20 @@
       ],
       "status": "source-import; runtime compatibility and quality not evaluated",
       "sha256": "8cb3ac68c6d8c4bb46886b998b09af7989643cab8bd0e46ee86dd62e64546bbe"
+    },
+    {
+      "id": "goose-research-kit--skills--conventional-commits",
+      "name": "conventional-commits",
+      "description": "Writes and checks commit messages that follow Conventional Commits 1.0.0. Use whenever creating, amending, squashing or reviewing a commit message, when asked to commit changes, or when a commit fails a commit-msg hook. Covers type and scope choice, breaking-change markers, footers, and SemVer mapping.",
+      "source": "goose-research-kit",
+      "source_url": "https://github.com/artyomzifir/my-toolbox-for-agents/blob/main/portable-research-library/upstream/goose-research-kit/skills/conventional-commits/SKILL.md",
+      "commit": "working-tree",
+      "path": "upstream/goose-research-kit/skills/conventional-commits/SKILL.md",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "flags": [],
+      "status": "kit-owned; maintained here, not imported",
+      "sha256": "beac7f15bcbe55968f7f5547013e54b1c7f082ef174533e47b025ddc633aa979"
     }
   ]
 }

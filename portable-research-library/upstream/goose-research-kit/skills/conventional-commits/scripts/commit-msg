@@ -1,0 +1,73 @@
+#!/bin/sh
+# Conventional Commits 1.0.0 commit-msg hook.
+# Install: cp scripts/commit-msg .git/hooks/commit-msg && chmod +x .git/hooks/commit-msg
+# Bypass:  git commit --no-verify
+
+msg_file=$1
+[ -r "$msg_file" ] || { echo "commit-msg: cannot read '$msg_file'" >&2; exit 1; }
+
+# Drop comment lines and trailing blank lines.
+clean=$(mktemp) || exit 1
+trap 'rm -f "$clean"' EXIT
+grep -v '^#' "$msg_file" > "$clean"
+
+header=$(sed -n '1p' "$clean")
+[ -n "$header" ] || { echo "commit-msg: empty commit message" >&2; exit 1; }
+
+fail() {
+    printf 'commit-msg: %s\n' "$1" >&2
+    shift
+    for line in "$@"; do printf '  %s\n' "$line" >&2; done
+    printf '  spec: https://www.conventionalcommits.org/en/v1.0.0/\n' >&2
+    exit 1
+}
+
+# Autosquash markers are not Conventional Commits; they are rewritten before merge.
+case "$header" in
+    fixup!*|squash!*|amend!*) fail "temporary commit message: $header" "rewrite it with 'git rebase -i --autosquash' before merging" ;;
+esac
+
+types='feat|fix|perf|refactor|docs|test|build|ci|style|chore|revert'
+prefix="^($types)(\\([a-z0-9._/-]+\\))?!?: "
+
+printf '%s\n' "$header" | grep -Eq "$prefix" || fail "malformed header: $header" \
+    "expected '<type>[(scope)][!]: <description>'" \
+    "type must be one of: feat fix perf refactor docs test build ci style chore revert"
+
+rest=${header#*: }
+type_scope=${header%%: *}
+
+[ -n "$rest" ] || fail "empty description after ': '"
+
+# Length: whole header.
+len=${#header}
+[ "$len" -le 72 ] || fail "header is $len characters, limit is 72" "move details into the body"
+
+# Description style.
+case "$rest" in
+    *.) fail "description ends with a period" "write: ${type_scope}: ${rest%.}" ;;
+esac
+case "$rest" in
+    [A-Z]*) fail "description starts with an uppercase letter: $rest" \
+        "use imperative lowercase ('add', not 'Add'); keep proper nouns only when unavoidable" ;;
+esac
+
+# Body must be separated by exactly one blank line (spec rule 6).
+second=$(sed -n '2p' "$clean")
+if [ -n "$second" ]; then
+    fail "missing blank line after the description" "line 2 is: $second"
+fi
+
+# Breaking change spelling: the footer token must be uppercase.
+if grep -Eq '^[Bb][Rr][Ee][Aa][Kk][Ii][Nn][Gg][ -][Cc][Hh][Aa][Nn][Gg][Ee]:' "$clean"; then
+    grep -Eq '^BREAKING[ -]CHANGE: ' "$clean" || fail \
+        "breaking-change footer must be uppercase: 'BREAKING CHANGE: <description>'" \
+        "or mark the header with '!' before the colon"
+fi
+
+# Footer tokens use hyphens, not spaces (spec rule 8). BREAKING CHANGE is the exception.
+if grep -Ev '^BREAKING[ -]CHANGE: ' "$clean" | grep -Eq '^[A-Za-z]+ [A-Za-z-]+: '; then
+    fail "footer token contains a space" "use hyphens: 'Reviewed-by: name', not 'Reviewed by: name'"
+fi
+
+exit 0

@@ -1,8 +1,8 @@
-# Каталог исходных процедур
+# Catalog of source procedures
 
-Версии закреплены в sources.lock.json. Флаги — эвристика по тексту, не проверка работоспособности.
+Versions are pinned in `sources.lock.json`. Flags are text heuristics, not a check of runtime compatibility.
 
-| ID | Навык | Источник | Лицензия | Флаги адаптации |
+| ID | Skill | Source | License | Adaptation flags |
 |---|---|---|---|---|
 | addy-agent-skills--skills--api-and-interface-design | api-and-interface-design | addy-agent-skills | MIT |  |
 | addy-agent-skills--skills--code-review-and-quality | code-review-and-quality | addy-agent-skills | MIT |  |
@@ -213,3 +213,4 @@
 | superpowers--skills--verification-before-completion | verification-before-completion | superpowers | MIT |  |
 | superpowers--skills--writing-plans | writing-plans | superpowers | MIT | namespaced_skill_references, subagents |
 | superpowers--skills--writing-skills | writing-skills | superpowers | MIT | namespaced_skill_references, subagents |
+| goose-research-kit--skills--conventional-commits | conventional-commits | goose-research-kit | MIT | kit-owned |

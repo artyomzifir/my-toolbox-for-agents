@@ -1,9 +1,7 @@
 {
-  "CATALOG.md": "bd2d2398a10b01fb4af21aa1eed8d60f6fd4ef6c9fb45eef3d9091b92d047342",
-  "GOOSEHINTS.append.md": "9256521524a3ae9fa6742c372c1fe4233aa8377263577dd05e63ad7de6b19742",
+  "CATALOG.md": "b2881b1a340337a4f66e5c0934f229eb0e779e21cc51ea0bcadf4f8a6f615bc4",
   "LICENSE": "192f004ad17ff42dfae6e1fb90d5ef7af65bc23a7a0656e1df4e2fec4e3103ce",
-  "README.ru.md": "b3140ac9f0c8d9abb31727ecb2bcdbee013f6f74c4f91828b1143a81a5e7f956",
-  "catalog.json": "1fb1e626aee5a27174250adb1ea970c937a2cd73a67582d7c1188a8c83896fb4",
+  "catalog.json": "4ea9d356090d95137deb989c3a8d13a11bda21dd67d6f7c8f5f1b32ae51fd8cb",
   "catalog.py": "a68dd355f82b02856a8ff97d230e5a06b8c5ee2b1c9f24a18db0594bfcfbfd38",
   "integrations.json": "fe0520eab355a066c866bd5c6c753197904565a76ebb45e9a3b62651c3dd6250",
   "procedures.json": "9387efd30b717de8f6ede4dd4a70da5c8c58579085ca9291dd050858425ef578",
@@ -1078,5 +1076,9 @@
   "upstream/superpowers/skills/writing-skills/references/graphviz-conventions.dot": "e2890a593c91370e384b42f2f67b1a6232c9e69dddea7891a0c1c46d7b20b694",
   "upstream/superpowers/skills/writing-skills/references/persuasion-principles.md": "a51bc9bf75189ea73a27b3fb504a2fdfdb966fb1f7f1cdf03203230a216ccc03",
   "upstream/superpowers/skills/writing-skills/references/testing-skills-with-subagents.md": "ed8a6862c085900135962390530d9dc7637ad6d650b4324ce3b051287a5c3f22",
-  "upstream/superpowers/skills/writing-skills/render-graphs.js": "c7f412cc629461c4d10287e668731874c0497707023e3e3f74a5355eb2cee196"
+  "upstream/superpowers/skills/writing-skills/render-graphs.js": "c7f412cc629461c4d10287e668731874c0497707023e3e3f74a5355eb2cee196",
+  "README.md": "ed357ebe944948b291fc7e30259c20559c439586a1000d1a90ea51ff4ae9d3a4",
+  "upstream/goose-research-kit/skills/conventional-commits/SKILL.md": "beac7f15bcbe55968f7f5547013e54b1c7f082ef174533e47b025ddc633aa979",
+  "upstream/goose-research-kit/skills/conventional-commits/scripts/commit-msg": "00a442eaa7e5861a01144d4b43a3a81578d3cbc3774b8b5d8b8c30f4f09ea64f",
+  "upstream/goose-research-kit/skills/conventional-commits/tests/run-tests.sh": "3f2fea0fb7b9600f191fc5a314bc972957908f36602eed636afe42fc03849b3d"
 }
